@@ -1,0 +1,7 @@
+{
+  "name": "fastworld-market",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
