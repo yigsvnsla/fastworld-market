@@ -1,0 +1,34 @@
+  <ion-card mode="ios" class="ion-no-margin">
+    <ion-card-content>
+      <ion-item>
+        <ion-label>
+          <p>Monto</p>
+          <h1>${{value}}</h1>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button color="primary" (click)="backSpacePad()" slot="end" expand="block" fill="clear" shape="round">
+            <ion-icon slot="icon-only" name="backspace"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-grid class="grid-pad">
+        <ion-row class="grid-pad-row">
+          <ion-col (click)="this.pressPad(pad)" class="grid-pad-col" [offset]="last? 4 : 0" size="4" *ngFor="let pad of numPad; let last = last">
+            {{pad}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button (click)="this.onExit('cancel')" expand="full" fill="clear" shape="round">
+              cancelar
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button (click)="this.onDone()" expand="full" fill="clear" shape="round">
+              aceptar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>

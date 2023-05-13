@@ -1,0 +1,25 @@
+<ion-content class="ion-no-padding">
+  <ion-chip  color="primary" mode="ios" outline="true">
+    <ion-icon name="images"></ion-icon>
+    <ion-label >{{this.swiper1.activeIndex + 1}}/{{this.swiper1.slides.length}}</ion-label>
+  </ion-chip>
+  <div class="swiper swiper-1">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let img of this.fakeData | async; let i = index">
+        <div class="swiper-zoom-container">
+          <div class="swiper-zoom-target">
+            <ion-img [src]="'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71b73jZMqUL._AC_SL1500_.jpg'"></ion-img>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="swiper swiper-2 ion-padding" >
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let img of this.fakeData | async">
+        <ion-img [src]="'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71b73jZMqUL._AC_SL1500_.jpg'"></ion-img>
+      </div>
+    </div>
+  </div>
+</ion-content>

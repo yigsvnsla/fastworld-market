@@ -5,7 +5,6 @@
   <div class="wave wave-4"></div>
 </section>
 <ion-content style="margin-top: 40px;">
-
   <ion-card class="profile" mode="ios">
     <ion-card-header>
       <ion-img class="ion-padding" [src]="'../../assets/svg/undraw_profile_pic_re_iwgo.svg'"></ion-img>
@@ -13,7 +12,7 @@
       <ion-card-title>Jesus Augusto Guzmán Martinéz</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Awesome content
+      <a href=""><ion-text style="text-decoration: underline;">Editar Perfil</ion-text></a>
     </ion-card-content>
   </ion-card>
 
@@ -21,8 +20,9 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-icon name="pizza" slot="start"></ion-icon>
-          <ion-label>Pizza</ion-label>
+          <ion-icon name="sunny" slot="start"></ion-icon>
+          <ion-label>Modo Obscuro</ion-label>
+          <ion-toggle [checked]="this.toggleDarkMode" (ionChange)="this.darkModeChange($event)" mode="ios"></ion-toggle>
         </ion-item>
         <ion-item>
           <ion-icon name="pizza" slot="start"></ion-icon>

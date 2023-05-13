@@ -1,0 +1,56 @@
+<ion-content mode="ios">
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeXs="12" sizeSm="12" sizeMd="6">
+        <ion-card class="card-container ion-no-margin" >
+          <ion-grid fixed >
+            <ion-row cdkDropListGroup>
+              <ion-col sizeXs="4" sizeSm="3" cdkDropList (cdkDropListEntered)="entered($event)" (cdkDropListDropped)="dropListDropped()" #placeholder></ion-col>
+              <ion-col sizeXs="4" sizeSm="3" cdkDropList (cdkDropListEntered)="entered($event)" (cdkDropListDropped)="dropListDropped()" #placeholder *ngFor="let item of items; let index = index; trackBy:this.trackBy" >
+                <ng-container *ngIf="item">
+                  <ion-fab-button #btnDelete (click)="this.deleteImage(index)" style="transform: scale(.6);position: absolute;z-index: 10; top: -15px; right: -15px;" size="small">
+                    <ion-icon name="close"></ion-icon>
+                  </ion-fab-button>
+                  <div cdkDrag (click)="$any(btnDelete)['hidden']" [cdkDragStartDelay]="1000" class="card-container-box">
+                    <ion-card class="ion-no-margin" >
+                      <ion-card-content style=" margin: 0; aspect-ratio: 2 / 3; padding: 0; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <ion-img class="card-img" [src]="item.url"></ion-img>
+                      </ion-card-content>
+                    </ion-card>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="!item">
+                  <div class="card-container-box-empty">
+                    <ion-card button  class="ion-no-margin">
+                      <ion-card-content (click)="this.addImage(index)" style=" margin: 0; aspect-ratio: 2 / 3; padding: 0; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <div  style="border: var(--ion-color-primary) dotted 2px;display: flex; flex-direction: column; align-items: center; padding: 12px 6px; border-radius: 8px; margin: 0px 6px;">
+                          <ion-fab-button size="small" style="transform: scale(.6)">
+                            <ion-icon name="add"></ion-icon>
+                          </ion-fab-button>
+                          <ion-label style="text-align: center; font-size: 0.7em;">Agregar Imagen</ion-label>
+                        </div>
+                      </ion-card-content>
+                    </ion-card>
+                  </div>
+                </ng-container>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+      <ion-col sizeXs="12" sizeSm="12" sizeMd="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+            <ion-card-title>Awesome Title</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button (click)="test()" expand="block"  shape="round">
+              Click me
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-content>

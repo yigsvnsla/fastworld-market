@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,49 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(
+    private actionSheetController: ActionSheetController
+  ) { }
+
+  public async presentItemActionSheet(id: number) {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Opciones',
+      mode: 'ios',
+      buttons: [
+        {
+          text: 'Eliminar',
+          role: 'destructive',
+          data: {
+            action: 'delete',
+          },
+        },
+        {
+          text: 'Cantidad',
+          data: {
+            action: 'Cantidad',
+          },
+        },
+        {
+          text: 'Ver Detalles',
+          data: {
+            action: 'Cantidad',
+          },
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          data: {
+            action: 'cancelar',
+          },
+        },
+      ],
+    });
+
+    await actionSheet.present();
+
+    const result = await actionSheet.onDidDismiss();
+    console.log(result);
+
+  }
 
 }

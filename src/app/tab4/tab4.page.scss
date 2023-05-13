@@ -1,16 +1,27 @@
+ion-card {
+  &.profile {
+    ion-card-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-
-ion-card{
-  &.profile{
-
+      ion-img {
+        width: 250px;
+      }
+    }
+    ion-card-content{
+      text-align: right;
+    }
   }
 }
 
 
-section.wave-container{
+section.wave-container {
   position: relative;
   width: 100%;
-  & div.wave{
+
+  & div.wave {
     position: absolute;
     top: 0;
     left: 0;
@@ -19,6 +30,7 @@ section.wave-container{
     background-image: url('../../assets/png/wave.png');
     background-size: 1000px 45px;
     transform: rotate(180deg);
+
     &.wave-1 {
       animation: waves1 30s linear infinite;
       opacity: 1;
@@ -26,6 +38,7 @@ section.wave-container{
       animation-delay: 0s;
       top: -15px;
     }
+
     &.wave-2 {
       animation: waves2 15s linear infinite;
       opacity: 0.5;
@@ -33,6 +46,7 @@ section.wave-container{
       animation-delay: -5s;
       top: -10px;
     }
+
     &.wave-3 {
       animation: waves3 25s linear infinite;
       opacity: 0.2;
@@ -40,6 +54,7 @@ section.wave-container{
       animation-delay: -2s;
       top: -5px;
     }
+
     &.wave-4 {
       animation: waves4 30s linear infinite;
       opacity: 0.5;
@@ -51,37 +66,41 @@ section.wave-container{
 }
 
 @keyframes waves1 {
-  0%{
+  0% {
     background-position-x: 0;
   }
-  100%{
+
+  100% {
     background-position-x: 1000px;
   }
 }
 
-@keyframes waves2{
-  0%{
+@keyframes waves2 {
+  0% {
     background-position-x: 0;
   }
-  100%{
+
+  100% {
     background-position-x: -1000px;
   }
 }
 
 @keyframes waves3 {
-  0%{
+  0% {
     background-position-x: 0;
   }
-  100%{
+
+  100% {
     background-position-x: 1000px;
   }
 }
 
 @keyframes waves4 {
-  0%{
+  0% {
     background-position-x: 0;
   }
-  100%{
+
+  100% {
     background-position-x: -1000px;
   }
 }

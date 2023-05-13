@@ -1,0 +1,74 @@
+<div class="container" *ngIf="showCropper">
+  <ion-toolbar [hidden]="this.showControl != ''">
+    <ion-fab-button (click)="this.onExit('cancel')" size="small" slot="start">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="this.showControl = 'crop'" size="small" slot="end">
+      <ion-icon name="crop"></ion-icon>
+    </ion-fab-button>
+  </ion-toolbar>
+
+  <image-cropper
+    (pinchmove)="pinchEvent($event)"
+    format="png"
+    [allowMoveImage]="false"
+    [transform]="transform"
+    [canvasRotation]="canvasRotation"
+
+    [imageFile]="imageFile"
+    [imageChangedEvent]="imageChangedEvent"
+
+    [containWithinAspectRatio]="true"
+    [maintainAspectRatio]="true"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded($event)"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()">
+  </image-cropper>
+
+  <ng-container *ngIf="this.showControl == ''">
+    <ion-fab (click)="this.onExport()" slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button>
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ng-container>
+
+  <ng-container *ngIf="this.showControl == 'crop'">
+    <div class="cropper-controls">
+      <ion-fab-button size="small" (click)="this.showControl = ''" >
+        <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button size="small" (click)="this.rotateRight()">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button size="small">
+        <ion-icon name="save"></ion-icon>
+      </ion-fab-button>
+    </div>
+  </ng-container>
+</div>
+
+<div class="container-empty" *ngIf="!showCropper">
+  <ion-card appDragDropFiles class="card-image-empty" (files)="dropedImage($event)" style="padding: 12px ;">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col sizeXs="12" sizeSm="6" >
+            <ion-img [src]="'../../../assets/svg/undraw_add_files_re_v09g.svg'"></ion-img>
+          </ion-col>
+          <ion-col style="height: 150px; display: flex; justify-content: center; align-items: center;" sizeXs="12" sizeSm="6" >
+            <ion-card-header class="ion-text-center"  style=" display: flex; flex-direction: column;align-items: center;">
+              <ion-card-subtitle>Busca o Arrastra <br> una foto aquí</ion-card-subtitle>
+              <ion-card-title>Toma una foto 📸</ion-card-title>
+              <input #inputImg style="display: none;"  type="file" (change)="fileChangeEvent($event)" />
+              <ion-fab-button (click)="this.searchFile()" style="padding: 6px;">
+                <ion-icon name="camera"></ion-icon>
+              </ion-fab-button>
+            </ion-card-header>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</div>

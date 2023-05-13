@@ -1,0 +1,124 @@
+/****** ion-button ******/
+
+body#root {
+
+  ion-button {
+    &.ion-activated {
+      transform: scale(0.98);
+    }
+  }
+
+  & {
+    ion-button[color="medium"] {
+      --ion-color-base: #E4E6EB !important;
+      --ion-color-shade: #CDCFD3 !important;
+    }
+  }
+
+  &.dark {
+    ion-button[color="medium"] {
+      --ion-color-base: #3A3B3C !important;
+      --ion-color-shade: #2f2f31 !important;
+    }
+
+  }
+}
+
+/**********************/
+
+/****** ion-item ******/
+ion-item {
+  &.item-content-center {
+    align-items: center;
+  }
+
+}
+
+
+/**********************/
+
+/****** ion-modal ******/
+ion-modal {
+
+  &.dialog {
+
+    --width: fit-content;
+    --min-width: 250px;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }
+
+  // modal full screen
+  &.modal-fullscreen {
+
+    --height: 100% !important;
+    --width: 100% !important;
+  }
+
+  &.modal-sing-in {
+
+    --border-radius: 8px 8px 0px 0px;
+
+    @media only screen and (min-width: 0px) {
+      --height: 538px !important;
+    }
+
+    @media only screen and (min-width: 576px) {
+      --height: 595px !important;
+    }
+
+  }
+
+}
+
+/**********************/
+
+/****** ion-input ******/
+ion-input {
+
+  // hide spin-btn
+  &.input-number {
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  // custom autocomplete background
+  &.input-autocomplete {
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      margin-top: 6px;
+      padding: 0;
+      padding-bottom: 8px;
+      -webkit-text-fill-color: var(--ion-color-primary);
+      -webkit-box-shadow: 0 0 0px 1000px var(--ion-item-background) inset !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+}
+
+/**********************/
+
+/** Breack Points ******************************************/
+
+// size xs breack point
+@media only screen and (min-width:0px) {}
+
+// size sm breack point
+@media only screen and (min-width: 576px) {}
+
+/*********************************************************/

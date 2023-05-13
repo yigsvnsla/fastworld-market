@@ -1,0 +1,148 @@
+
+<ion-content mode="ios" class="ion-no-padding">
+  <!--
+    <ng-container *ngIf="(this.productLoading$ | async) as val ">
+    <div class="loading-container">
+      <ion-card>
+        <ion-card-content>
+          <ion-img [src]="'../../assets/svg/undraw_loading_re_5axr.svg'"></ion-img>
+        </ion-card-content>
+        <ion-card-header class="ion-text-center">
+          <ion-card-subtitle>Espere unos instantes</ion-card-subtitle>
+          <ion-card-title>Buscando contenido</ion-card-title>
+          <ion-spinner name="crescent"></ion-spinner>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </ng-container>
+ -->
+  <ng-container *ngIf="(this.productError$ | async ) as error">
+    <div class="loading-container">
+      <ion-card>
+        <ion-card-content>
+          <ion-img [src]="'../../assets/svg/undraw_warning_cyit.svg'"></ion-img>
+        </ion-card-content>
+        <ion-card-header class="ion-text-center">
+          <ion-card-subtitle>{{error.message}} </ion-card-subtitle>
+          <ion-card-title>Error {{error.status}} 📦</ion-card-title>
+          <ion-spinner name="crescent"></ion-spinner>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </ng-container>
+
+
+
+  <!-- <ion-buttons mode="md" class="back-button">
+    <ion-button (click)="this.onBack()" size="small" expand="block" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-grid class="ion-no-padding" >
+    <ion-row >
+      <ion-col sizeSm="8" sizeXs="12">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" [routerLink]="['image']" routerLinkActive="router-link-active" *ngFor="let img of this.fakeData | async; let i = index">
+              <ion-img [src]="url"></ion-img>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </ion-col>
+      <ion-col sizeSm="4" sizeXs="12">
+        <ion-card class="ion-no-margin" >
+          <ion-card-header style="border-bottom: 2px solid rgb(117, 117, 117); padding-bottom: 0;padding-top: 0;">
+            <ion-card-title style="font-size: large;">{{ url }}</ion-card-title>
+            <ion-card-subtitle style="font-weight: bolder;">{{ ( 999 | currency ) }} · {{ '{Disponibles}'}}
+            </ion-card-subtitle>
+            <ion-card-subtitle style="font-size: xx-small;">
+              <ion-icon name="timer"></ion-icon> Publicado: {{'{ hace 1 dia }'}}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12">
+                <ion-button expand="block">
+                  <ion-icon slot="start" name="cart"></ion-icon>
+                  <ion-label>Añadir al carrito</ion-label>
+                </ion-button>
+              </ion-col>
+              <ion-col size="12">
+                <ion-row>
+                  <ion-col size="4">
+                    <ion-button color="medium" expand="block" size="small">
+                      <ion-icon slot="start" name="bookmark"></ion-icon>
+                      <ion-label>Guardar</ion-label>
+                    </ion-button>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-button color="medium" expand="block" size="small">
+                      <ion-icon slot="start" name="arrow-redo"></ion-icon>
+                      <ion-label>Compartir</ion-label>
+                    </ion-button>
+                  </ion-col>
+                  <ion-col size="2">
+                    <ion-button color="medium" expand="block" size="small">
+                      <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-card-content style="padding-top: var(--ion-padding, 16px);">
+            <span style="white-space: pre-line;">
+              <b>Detalles</b>
+              <br>
+              <b style="color: var(--ion-color-dark); font-weight: bolder;">Estado: </b> {{ 'Usado - Buen Estado' }}
+              <br>
+              {{this.desc}} </span>
+
+              <ion-item *ngFor="let item of [0,1,2,3,4,5,6,7,8,9]">
+                <ion-label>
+                  <p>Pizza</p>
+                  <h2>Hawaii</h2>
+                </ion-label>
+              </ion-item>
+          </ion-card-content>
+          <hr color="red" />
+
+
+              <ion-grid fixed>
+              <ion-row >
+              <ion-col class="col-button" size="4">
+                <ion-fab-button size="small">
+                  <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+                <span>boton 1</span>
+              </ion-col>
+              <ion-col class="col-button" size="4">
+                <ion-fab-button size="small">
+                  <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+                <span>boton 1</span>
+              </ion-col>
+              <ion-col class="col-button" size="4">
+                <ion-fab-button size="small">
+                  <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+                <span>boton 1</span>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</ion-content>
+
+<!-- <ion-button (click)="openModalLogin()" expand="block" fill="clear" shape="round">
+    Click me
+</ion-button>
+<ion-button (click)="openModalregister()" expand="block" fill="clear" shape="round">
+    Click me
+</ion-button> -->
+
+

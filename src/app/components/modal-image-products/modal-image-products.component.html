@@ -1,0 +1,35 @@
+<!-- <ion-content class="ion-no-padding">
+  <ion-chip *ngIf="_swiperPrimary?.nativeElement?.swiper" color="primary" mode="ios" outline="true">
+    <ion-icon name="images"></ion-icon>
+    <ion-label >{{_swiperPrimary?.nativeElement?.swiper?.activeIndex}}/{{_swiperPrimary?.nativeElement?.swiper?.slides?.length}}</ion-label>
+  </ion-chip>
+  <swiper-container
+    pagination-dynamic-bullets="true"
+    #swiperPrimary
+    class="primary"
+    init="false"
+    space-between="16"
+    thumbs-swiper=".secoundary"
+    [initialSlide]="this.initialSlide"
+    zoom="true">
+    <swiper-slide *ngFor="let img of this.fakeData | async">
+      <div class="swiper-zoom-container">
+        <div class="swiper-zoom-target">
+          <ion-img [src]="'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71b73jZMqUL._AC_SL1500_.jpg'"></ion-img>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+  <swiper-container
+    class="secoundary ion-padding"
+    #swiperSecoundary
+    init="false"
+    space-between="16"
+    slides-per-view="auto"
+    watch-slides-progress="true"
+    scroll>
+    <swiper-slide *ngFor="let img of this.fakeData | async" >
+      <ion-img [src]="'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71b73jZMqUL._AC_SL1500_.jpg'"></ion-img>
+    </swiper-slide>
+  </swiper-container>
+</ion-content> -->

@@ -1,0 +1,84 @@
+ion-content {
+
+  ///
+  div {
+    &.loading-container {
+      height: 100%;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      overflow: hidden;
+
+      ion-card {
+        height: calc(100vh - 60px);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        ion-card-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          ion-img {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  ///
+
+  ion-card {
+    height: calc(100vh - 60px);
+    overflow: scroll;
+  }
+
+  ion-buttons {
+    &.back-button {
+      position: absolute;
+      color: var(--ion-color-primary);
+      border: solid 2px var(--ion-color-primary);
+      border-radius: 50%;
+      transform: scale(0.50);
+      margin: 0.3em;
+    }
+  }
+
+  .swiper {
+    width: 100%;
+    height: 40vh;
+
+    @media only screen and (min-width: 576px) {
+      height: calc(100vh - 60px);
+    }
+
+    --swiper-pagination-color: var(--ion-color-primary);
+    --swiper-pagination-bullet-inactive-color: var(--ion-color-primary);
+    --swiper-pagination-bullet-inactive-opacity: 0.8;
+    background-color: #000;
+
+    .swiper-slide {
+      text-align: center;
+      background-color: #000;
+      font-size: 18px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .col-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

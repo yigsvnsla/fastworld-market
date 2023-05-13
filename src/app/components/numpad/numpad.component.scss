@@ -1,0 +1,16 @@
+.grid-pad{
+  text-align: center;
+  font-size: xx-large;
+}
+
+.grid-pad-col{
+  border-radius: 8px;
+  &:active{
+    background-color: rgb(56, 56, 56);
+    opacity: 0.5 !important;
+  }
+}
+
+ion-item{
+  --border-color: var(--ion-color-primary);
+}

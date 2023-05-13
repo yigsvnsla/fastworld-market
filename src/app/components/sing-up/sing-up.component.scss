@@ -1,0 +1,142 @@
+
+
+ion-card{
+  & ion-card-header {
+    &>ion-img::part(image) {
+
+      @media only screen and (min-width: 0px) {
+        max-height: 50px;
+      }
+
+      @media only screen and (min-width: 576px) {
+        max-height: 107px;
+      }
+    }
+
+    &:nth-child(1),
+    &+ion-card-content {
+      padding-bottom: 0px;
+    }
+  }
+}
+
+p {
+  &#link-register {
+    &.divider {
+      display: flex;
+
+      &:before,
+      &:after {
+        content: "";
+        flex: 1;
+      }
+    }
+
+    &.line {
+      align-items: center;
+      margin: 1em -1em 0em -1em;
+
+      &:before,
+      &:after {
+        height: 1px;
+        margin: 0 1em;
+      }
+    }
+
+    &.one-line {
+
+      &:before,
+      &:after {
+        background: #424246;
+      }
+    }
+  }
+}
+
+
+section.wave-container {
+  position: relative;
+  width: 100%;
+
+  & div.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background-image: url('../../../assets/png/wave.png');
+    background-size: 1000px 45px;
+
+    &.wave-1 {
+      animation: waves1 30s linear infinite;
+      opacity: 1;
+      z-index: 100;
+      animation-delay: 0s;
+      top: 15px;
+    }
+
+    &.wave-2 {
+      animation: waves2 15s linear infinite;
+      opacity: 0.5;
+      z-index: 99;
+      animation-delay: -5s;
+      top: 10px;
+    }
+
+    &.wave-3 {
+      animation: waves3 25s linear infinite;
+      opacity: 0.2;
+      z-index: 98;
+      animation-delay: -2s;
+      top: 5px;
+    }
+
+    &.wave-4 {
+      animation: waves4 30s linear infinite;
+      opacity: 0.5;
+      z-index: 97;
+      animation-delay: 0s;
+      top: 10px;
+    }
+  }
+}
+
+@keyframes waves1 {
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+@keyframes waves2 {
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: -1000px;
+  }
+}
+
+@keyframes waves3 {
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+@keyframes waves4 {
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: -1000px;
+  }
+}

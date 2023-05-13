@@ -1,0 +1,121 @@
+<ion-content>
+  <ion-card>
+    <form (ngSubmit)="onSubmit()" [formGroup]="this.formUserRegister">
+      <ion-card-header class="ion-text-center" mode="ios">
+        <ion-img [src]="'../../assets/svg/banner.svg'"></ion-img>
+        <ion-card-title>Crear Cuenta</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item-group>
+          <!-- --- -->
+          <ion-item class="item-content-center">
+            <ion-label for="firstName" position="stacked">Nombre</ion-label>
+            <ion-icon slot="start" name="person" color="primary"></ion-icon>
+            <ion-input autocomplete="given-name" name="firstName" formControlName="name" type="text" placeholder="ej: Darwin Alexander"></ion-input>
+          </ion-item>
+          <ng-container *ngIf="this.formUserRegister.get(['name'])?.dirty">
+            <span *ngIf="this.formUserRegister.get(['name'])?.hasError('notMatchUsername') || this.formUserRegister.get(['notMatchUsername'])?.hasError('textEmpty')" class="error ion-padding">
+              <b>Formato no valido<ion-text color="danger">*</ion-text></b>
+            </span>
+          </ng-container>
+          <!-- --- -->
+          <ion-item class="item-content-center">
+            <ion-label for="lastname" position="stacked">Apellido</ion-label>
+            <ion-icon slot="start" name="person" color="primary"></ion-icon>
+            <ion-input autocomplete="family-name" name="lastname" formControlName="lastname" type="text" placeholder="ej: Moreno Martínez"></ion-input>
+          </ion-item>
+          <ng-container *ngIf="this.formUserRegister.get(['lastname'])?.dirty">
+            <span *ngIf="this.formUserRegister.get(['lastname'])?.hasError('notMatchUsername') || this.formUserRegister.get(['notMatchUsername'])?.hasError('textEmpty')" class="error ion-padding">
+              <b>Formato no valido<ion-text color="danger">*</ion-text></b>
+            </span>
+          </ng-container>
+          <!-- --- -->
+          <ion-item class="item-content-center">
+            <ion-label for="phone" position="stacked">Numero de Telefono</ion-label>
+            <ion-icon slot="start" name="call" color="primary"></ion-icon>
+            <ion-input autocomplete="tel" name="phone" formControlName="phone" type="tel" placeholder="+593981112233"></ion-input>
+          </ion-item>
+          <ng-container *ngIf="this.formUserRegister.get(['phone'])?.dirty">
+            <span *ngIf="this.formUserRegister.get(['phone'])?.hasError('notIsValidPhoneNumber') || this.formUserRegister.get(['phone'])?.hasError('textEmpty')" class="error ion-padding">
+              <b>Numero telefono invalido <ion-text color="danger">*</ion-text></b>
+            </span>
+          </ng-container>
+          <!-- --- -->
+          <ion-item class="item-content-center">
+            <ion-label for="email" position="stacked">Correo Electronico</ion-label>
+            <ion-icon slot="start" name="at" color="primary"></ion-icon>
+            <ion-input autocomplete="email" name="email" formControlName="email" type="email" placeholder="example@fastworld.app"></ion-input>
+          </ion-item>
+          <ng-container *ngIf="this.formUserRegister.get(['email'])?.dirty">
+            <span
+              *ngIf="(this.formUserRegister.get(['email'])?.hasError('notMatchEmail') || this.formUserRegister.get(['email'])?.hasError('textEmpty'))" class="error ion-padding">
+              <b>Ingresa un correo valido <ion-text color="danger">*</ion-text></b>
+            </span>
+          </ng-container>
+          <!-- --- -->
+          <ion-item class="item-content-center" [ngStyle]="{'--highlight-background':this.passwordStatusColor}">
+            <ion-label for="pass" position="stacked">Contraseña</ion-label>
+            <ion-icon slot="start" name="key" color="primary"></ion-icon>
+            <ion-input autocomplete="current-password" name="pass" formControlName="password" type="text" placeholder="••••••••••••"></ion-input>
+          </ion-item>
+          <ng-container *ngIf="this.formUserRegister.get(['password'])?.dirty">
+            <span class="error ion-padding" *ngIf="this.formUserRegister.get(['password'])?.value != ''">
+              <b>Seguridad:
+                <ion-text *ngIf="this.getPasswordStatus === 'low'" color="danger">Insegura</ion-text>
+                <ion-text *ngIf="this.getPasswordStatus === 'medium'" color="warning">Intermedia</ion-text>
+                <ion-text *ngIf="this.getPasswordStatus === 'hard'" color="success">Excelente ✔</ion-text>
+              </b>
+            </span>
+            <span *ngIf="this.formUserRegister.get(['password'])?.hasError('textEmpty')|| this.formUserRegister.get(['password'])?.hasError('notMatchPassword')" class="error ion-padding">
+              <b>Ingresa una contraseña valida <ion-text color="danger">*</ion-text></b>
+            </span>
+          </ng-container>
+          <!-- --- -->
+          <ion-item class="item-content-center">
+            <ion-label for="pass2Control" position="stacked">Repite la contraseña</ion-label>
+            <ion-icon slot="start" name="lock-closed" color="primary"></ion-icon>
+            <ion-input autocomplete="off" name="pass2Control" formControlName="confirmPassword" type="text" placeholder="••••••••••••"></ion-input>
+          </ion-item>
+          <ng-container *ngIf="this.formUserRegister.get(['confirmPassword'])?.dirty">
+            <span *ngIf="this.formUserRegister.get(['confirmPassword'])?.hasError('notMatch')" class="error ion-padding">
+              <b>Las contraseñas no coinciden<ion-text color="danger">*</ion-text></b>
+            </span>
+            <span *ngIf="this.formUserRegister.get(['confirmPassword'])?.hasError('textEmpty')" class="error ion-padding">
+              <b>Ingresa una contraseña valida<ion-text color="danger">*</ion-text></b>
+            </span>
+          </ng-container>
+          <!-- --- -->
+        </ion-item-group>
+      </ion-card-content>
+      <ion-card-header class="ion-text-center">
+        <ion-card-subtitle><b>¿Ya tienes una cuenta? <a href="#">Iniciar sesión</a></b></ion-card-subtitle>
+        <ion-card-subtitle>Al crear una cuenta, aceptas las <a href="#">Condiciones de Uso</a> y el <a href="#">Aviso de Privacidad</a> de Fasworld.app</ion-card-subtitle>
+        <ion-button type="submit" expand="full" shape="round">
+          <ion-spinner *ngIf="this.statusLoading" name="crescent"></ion-spinner>
+          <ion-label *ngIf="!this.statusLoading" >crear</ion-label>
+        </ion-button>
+        <p class="divider line one-line" id="link-register">crear cuenta con</p>
+        <ion-grid fixed>
+          <ion-row class="ion-justify-content-between">
+            <ion-col style="display: flex;" class="ion-justify-content-center" size="6">
+              <ion-fab-button color="primary">
+                <ion-icon name="logo-google"></ion-icon>
+              </ion-fab-button>
+            </ion-col>
+            <ion-col style="display: flex;" class="ion-justify-content-center" size="6">
+              <ion-fab-button color="primary">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </ion-fab-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-header>
+    </form>
+  </ion-card>
+  <section class="wave-container">
+    <div class="wave wave-1"></div>
+    <div class="wave wave-2"></div>
+    <div class="wave wave-3"></div>
+    <div class="wave wave-4"></div>
+  </section>
+</ion-content>
